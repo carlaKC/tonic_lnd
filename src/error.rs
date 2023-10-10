@@ -47,7 +47,7 @@ impl fmt::Display for ConnectError {
             ParseCert { file, .. } => write!(f, "failed to parse certificate {}", file.display()),
             InvalidAddress { address, .. } => write!(f, "invalid address {}", address),
             TlsConfig(_) => write!(f, "failed to configure TLS"),
-            Connect { address, .. } => write!(f, "failed to connect to {}", address),
+            Connect { address, error } => write!(f, "failed to connect to {} {}", address, error),
         }
     }
 }
